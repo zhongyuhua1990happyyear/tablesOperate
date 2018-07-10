@@ -1,0 +1,31 @@
+module.exports = {
+	entry:'./src/main.js',
+	output:{
+		path:__dirname,
+		filename:'dist/app.js'
+	},
+	module:{
+		rules:[
+			{
+				test:/\.js$/,
+				loader:'babel-loader',
+				exclude:/node_modules/,
+				options:{
+					presets:['es2015']
+				}
+			},
+			{
+				test:/\.css$/,
+				loader:'style-loader!css-loader'
+			},
+			{
+				test:/\.(png|jpg|jpeg|ttf|gif)$/,
+				loader:'file-loader'
+			},
+			{
+				test:/\.vue$/,
+				loader:'vue-loader'
+			}
+		]
+	}
+}
